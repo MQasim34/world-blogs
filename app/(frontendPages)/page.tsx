@@ -6,9 +6,10 @@ export default function HomePage() {
   // const { isAuthenticated } = useAuth();
   
   return (
-    <div>
-      hello
-      {/* {isAuthenticated ? 'Logged in' : 'Logged out'} */}
+    <div className="p-2.5">
+      <div className="container m-auto">
+        he
+      </div>
     </div>
   );
 }
