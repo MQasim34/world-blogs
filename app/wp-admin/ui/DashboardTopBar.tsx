@@ -1,10 +1,12 @@
 import Image from "next/image";
 import qasim from '@/public/dashboard/qasim.png'
-import { lato, poppins } from "../fonts/fonts";
+import { lato } from "../fonts/fonts";
 
-export default function () {
-    return (
-        <div className="bg-white py-2 px-5 shadow">
+import React from 'react'
+
+const DashboardTopBar = () => {
+  return (
+    <div className="bg-white py-2 px-5 shadow">
             <div className="flex justify-between items-center">
                 <div>WebSite URL</div>
                 <div className="flex items-center gap-2.5">
@@ -13,5 +15,7 @@ export default function () {
                 </div>
             </div>
         </div>
-    )
+  )
 }
+
+export default DashboardTopBar

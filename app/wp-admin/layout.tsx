@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 
 import { AuthProvider } from "../context/auth";
-import { lato, poppins } from "./fonts/fonts";
+import { lato } from "./fonts/fonts";
 import Sidebar from "./ui/sidebar";
 import '@/app/globals.css'
 import { useRouter } from 'next/navigation';
@@ -30,11 +30,12 @@ export default function RootLayout({
 function AuthWrapper({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
+  // const [isRedirecting, setIsRedirecting] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated && !isRedirecting) {
-      // setIsRedirecting(true);
+      setIsRedirecting(true);
       router.push('/wp-admin');
     }
   }, [isAuthenticated, isLoading, router, isRedirecting]);

@@ -14,8 +14,9 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       await login(username, password);
-    } catch (err) {
+    } catch (_err) {
       setError('Invalid username or password');
+      // console.error("Login failed:", err)
     }
   };
 
