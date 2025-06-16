@@ -1,9 +1,7 @@
 // app/wp-admin/login/page.tsx
 'use client';
-
 import { useState } from 'react';
 import { useAuth } from '@/app/context/auth';
-
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

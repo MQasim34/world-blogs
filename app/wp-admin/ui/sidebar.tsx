@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Settings,Rss, Monitor,LogOut } from "@deemlol/next-icons";
 import { useAuth } from "@/app/context/auth";
 
-const sidebar = () => {
+const SideBar = () => {
     const {logout} = useAuth();
     // const pathname = usePathname();
   return (
@@ -27,4 +27,4 @@ const sidebar = () => {
   )
 }
 
-export default sidebar
+export default SideBar
