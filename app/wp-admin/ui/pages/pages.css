@@ -1,0 +1,6 @@
+.show_On_hover{
+  visibility: hidden;
+}
+.page_table_hover_effect:hover .show_On_hover{
+  visibility: visible;
+}
