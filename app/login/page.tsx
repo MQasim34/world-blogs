@@ -22,9 +22,9 @@ export default function LoginPage() {
   }
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">

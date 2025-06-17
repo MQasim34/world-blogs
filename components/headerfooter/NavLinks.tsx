@@ -2,7 +2,7 @@ import { lato, } from "@/app/wp-admin/fonts/fonts"
 import Link from "next/link"
 
 
-const Links = [
+const Links: {name: string, href: string}[] = [
     {name: 'Hotel',  href: '/'},
     {name: 'Flight',  href: '/'},
     {name: 'Train',  href: '/'},
