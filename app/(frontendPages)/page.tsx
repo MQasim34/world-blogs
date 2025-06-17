@@ -1,5 +1,4 @@
 'use client';
-import HeroCarousal from "@/components/HomePageCom/HeroCarousal";
 import Image from "next/image";
 import { lato, poppins } from "../wp-admin/fonts/fonts";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
