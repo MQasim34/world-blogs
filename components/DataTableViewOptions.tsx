@@ -27,12 +27,12 @@ export function DataTableViewOptions<TData>({
           className="ml-auto hidden h-9 lg:flex"
         >
           <Settings2 />
-          View
+          Filters Here
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+        {/* <DropdownMenuLabel>Toggle columns</DropdownMenuLabel> */}
+        {/* <DropdownMenuSeparator /> */}
         {table
           .getAllColumns()
           .filter(

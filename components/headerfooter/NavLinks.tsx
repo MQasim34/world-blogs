@@ -16,7 +16,7 @@ const Links: {name: string, href: string}[] = [
 const NavLinks = () => {
   return (
     <ul className="flex gap-5">
-        {Links.map(link => <li key={link.name}><Link className={`${lato} antialiased font-normal text-[16px] text-white capitalize`} href={link.href}>{link.name}</Link></li>)}
+        {Links.map(link => <li key={link.name}><Link className={`${lato} antialiased font-normal text-[16px] text-foreground capitalize`} href={link.href}>{link.name}</Link></li>)}
     </ul>
   )
 }

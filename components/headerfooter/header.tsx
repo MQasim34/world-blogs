@@ -1,21 +1,33 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
 import contentCreator from '@/public/FrontendImg/contentCreator_fullwhite.svg'
+import contentCreatordark from '@/public/contentCreator.svg'
 import NavLinks from "./NavLinks";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ModeToggle";
 import NavSideBar from "@/components/headerfooter/NavSideBar";
+import { useTheme } from "next-themes";
 
 const header = () => {
+     const { theme, systemTheme } = useTheme();
+    const logoImage = (theme === "system" ? systemTheme : theme) === "dark" 
+    ? contentCreator
+    : contentCreatordark; 
     return (
         <div>
-            <div className="sticky p-2.5 dark:bg-[rgba(0,0,0,.3)] bg-[rgba(255,255,255,.3)] backdrop-blur-[5px] z-10">
+            <div className="sticky p-2.5 bg-accent backdrop-blur-[5px] z-10">
                 <div className="container m-auto">
                     <div className="flex flex-row justify-between items-center">
                         <div className="flex items-center gap-5">
                             <div>
                                 <Link href='/'>
-                                    <Image src={contentCreator} width={130} alt="Content Creator" />
+                                    <Image 
+                                    src={logoImage}
+                                    width={130} 
+                                    alt="Content Creator" 
+                                    />
                                 </Link>
                             </div>
                             <div className="hidden md:flex"><NavLinks /></div>

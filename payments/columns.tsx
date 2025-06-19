@@ -7,25 +7,26 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowUpDown } from "lucide-react"
-import { DataTableColumnHeader } from "@/components/data-table-column-header"
+// import { DataTableColumnHeader } from "@/components/data-table-column-header"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Payment = {
   id: string
+  author: string
+  categoies: string
   amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
+  date: string
+  // status: "pending" | "processing" | "success" | "failed"
+  PostTitle: string
 }
 
 export const columns: ColumnDef<Payment>[] = [
-    {
+  {
     id: "select",
     header: ({ table }) => (
       <Checkbox
@@ -47,25 +48,66 @@ export const columns: ColumnDef<Payment>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-   {
-    
-    accessorKey: "email",
-    header: ({ column }) => {
-      <DataTableColumnHeader column={column} title="Email" />
+  {
+    accessorKey: "PostTitle",
+    header: ({ column }) => (
+      <div className="flex items-center cursor-default text-sm font-bold p-0"
+        // variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Post Title
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </div>
+    ),
+  },
+  {
+    accessorKey: "author",
+    header: ({ column }) => (
+      <span className="text-sm font-bold">Author</span>
+    ),
+  },
+  {
+    accessorKey: "categoies",
+    header: ({ column }) => (
+      <span className="text-sm font-bold">Categoies</span>
+    ),
+  },
+  // {
+  //   accessorKey: "status",
+  //   header: "Status",
+  // },
+  // {
+  //   accessorKey: "amount",
+  //   header: () => <div className="text-right">Amount</div>,
+  //   cell: ({ row }) => {
+  //     const amount = parseFloat(row.getValue("amount"))
+  //     const formatted = new Intl.NumberFormat("en-US", {
+  //       style: "currency",
+  //       currency: "USD",
+  //     }).format(amount)
+
+  //     return <div className="text-right font-medium">{formatted}</div>
+  //   },
+  // },
+  {
+    accessorKey: "date",
+    header: () => <span className="text-sm font-bold">Date</span>,
+    cell: ({ row }) => {
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <div className="flex flex-col items-start">
+          <span className="text-xs font-bold">Published</span>
+          <span className="text-[12px] font-normal text-gray-500">{row.getValue("date")}</span>
+        </div>
       )
     },
+  },
+  {
     id: "actions",
+    header: () => <span>Actions</span>,
     cell: ({ row }) => {
-      const payment = row.original
- 
+      <span className="text-sm font-bold">Action</span>
+      // const payment = row.original
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -75,15 +117,15 @@ export const columns: ColumnDef<Payment>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
+            {/* <DropdownMenuLabel>Actions</DropdownMenuLabel> */}
+            {/* <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(payment.id)}
             >
               Copy payment ID
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuSeparator /> */}
+            <DropdownMenuItem>Edit</DropdownMenuItem>
+            <DropdownMenuItem>Move to trash </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )

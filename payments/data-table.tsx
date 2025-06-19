@@ -2,15 +2,15 @@
 import * as React from "react"
 import {
     ColumnDef,
+    ColumnFiltersState,
     flexRender,
     SortingState,
     VisibilityState,
     getCoreRowModel,
+    getFilteredRowModel,
     getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
-    ColumnFiltersState,
-    getFilteredRowModel,
 } from "@tanstack/react-table"
 
 import {
@@ -59,9 +59,9 @@ export function DataTable<TData, TValue>({
         getPaginationRowModel: getPaginationRowModel(),
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
+        onColumnVisibilityChange: setColumnVisibility,
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
-        onColumnVisibilityChange: setColumnVisibility,
         onRowSelectionChange: setRowSelection,
         state: {
             sorting,
@@ -74,24 +74,20 @@ export function DataTable<TData, TValue>({
     return (
         <div>
             <div className="flex items-center py-4 justify-between">
-                <Input
-                    placeholder="Search Posts..."
-                    value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) =>
-                        table.getColumn("email")?.setFilterValue(event.target.value)
-                    }
-                    className="max-w-sm"
-                />
                 <div className="flex items-center gap-2.5">
                     <DataTableViewOptions table={table} />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="outline" className="ml-auto">
-                                Add task
+                                Post Status
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                            {table
+                            <DropdownMenuCheckboxItem>All</DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem>Mine</DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem>Publish</DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem>Draft</DropdownMenuCheckboxItem>
+                            {/* {table
                                 .getAllColumns()
                                 .filter(
                                     (column) => column.getCanHide()
@@ -109,13 +105,21 @@ export function DataTable<TData, TValue>({
                                             {column.id}
                                         </DropdownMenuCheckboxItem>
                                     )
-                                })}
+                                })} */}
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
+                <Input
+                    placeholder="Search Posts..."
+                    value={(table.getColumn("PostTitle")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) =>
+                        table.getColumn("PostTitle")?.setFilterValue(event.target.value)
+                    }
+                    className="max-w-sm  dark:bg-muted/50 bg-white"
+                />
             </div>
             <div className="rounded-md border">
-                {/* <Table /> */}
+                <Table />
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
