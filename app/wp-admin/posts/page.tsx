@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import Payments from '@/app/payments/page'
+import Payments from '@/payments/page'
 
 const page = () => {
     return (

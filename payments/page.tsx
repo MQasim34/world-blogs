@@ -1,4 +1,4 @@
-import { columns, Payment } from "./columns"
+import { columns, Payment } from "@/payments/columns"
 import { DataTable } from "./data-table"
 
 async function getData(): Promise<Payment[]> {
