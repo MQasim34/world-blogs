@@ -5,7 +5,7 @@ import '@/app/globals.css';
 import Header from '@/components/headerfooter/header'
 import Footer from '../../components/headerfooter/footer';
 import { ThemeProvider } from "@/components/theme-provider"
-
+ 
 export const metadata: Metadata = {
   title: 'My App',
   description: 'My App Description',

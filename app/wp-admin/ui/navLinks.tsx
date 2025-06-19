@@ -28,10 +28,10 @@ const NavLinks = () => {
                         <Link
                             href={link.href}
                             className={clsx(
-                                'flex justify-start items-center text-[14px] font-medium py-2 px-1.5 hover:bg-blue-100 hover:text-blue-900 border-l-3 hover:border-blue-900 rounded gap-2',
+                                'flex justify-start items-center text-[14px] font-medium py-2 px-1.5 dark:hover:bg-violet-100 hover:bg-blue-100 dark:hover:text-violet-900 hover:text-blue-900 border-l-3 dark:hover:border-violet-800 hover:border-blue-900 rounded gap-2',
                                 { 
-                                    'bg-blue-100 text-blue-900 border-blue-900': pathname === link.href,
-                                    'border-white': pathname !== link.href,
+                                    'dark:bg-violet-100 bg-blue-100 dark:text-violet-900 text-blue-900 dark:border-violet-900 border-blue-900': pathname === link.href,
+                                    'dark:border-black border-white': pathname !== link.href,
                                 }
                             )}
                         >
