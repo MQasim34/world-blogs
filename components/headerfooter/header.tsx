@@ -10,7 +10,7 @@ import { ModeToggle } from "@/components/ModeToggle";
 import NavSideBar from "@/components/headerfooter/NavSideBar";
 import { useTheme } from "next-themes";
 
-const header = () => {
+const Header = () => {
      const { theme, systemTheme } = useTheme();
     const logoImage = (theme === "system" ? systemTheme : theme) === "dark" 
     ? contentCreator
@@ -48,4 +48,4 @@ const header = () => {
     )
 }
 
-export default header
+export default Header

@@ -9,8 +9,8 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
+  // DropdownMenuLabel,
+  // DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 
 export function DataTableViewOptions<TData>({
