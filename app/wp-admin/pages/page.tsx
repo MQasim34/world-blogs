@@ -1,5 +1,4 @@
-import { lato, poppins } from "../fonts/fonts";
-import { GoPlus } from "react-icons/go";
+import { poppins } from "../fonts/fonts";
 import PageManagement from "../ui/pages/Pagetable";
 import { Button } from "@/components/ui/button";
 
